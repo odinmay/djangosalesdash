@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sales Dashboard</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Testing And Debugging is sooo fun.</h1>
+                <p class="lead"> This is the home page, hopefully sometime soon there will be graphs and other cool stuff here but only time will tell really.</p>
+                <a href="{% url 'inventory:productlist' %}">View Your Products</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+</body>
+</html>
