@@ -7,8 +7,27 @@
 </head>
 <body>
     {% block body %}
-        <h1 class="display-1">Add an Invoice</h1>
-        <p>From this page, you can add invoices, and view invoices. ( 'invoices' <- Link)</p>
+        <div class="container">
+            <div class="row mx-5 justify-content-between text-center">
+                <div class="col-12">
+
+                    <h1 class="display-1"><a href="{% url 'invoices:invoice-create' %}">Create New Invoice</a> </h1>
+                    <hr>
+                    <h3 class="display-3">Invoices</h3>
+                    <hr>
+
+                    {% if invoice_list|length == 0 %}
+                        <h4>No invoices yet!</h4>
+                    {% endif %}
+
+                    {% for invoice in invoice_list %}
+                        <p>{{ invoice }} : {{ invoice.date }}</p>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
 
     {% endblock body %}
 </body>
