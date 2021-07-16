@@ -21,7 +21,7 @@
                     {% endif %}
 
                     {% for invoice in invoice_list %}
-                        <p>{{ invoice }} : {{ invoice.date }}</p>
+                        <p><a href="{% url 'invoices:invoice-detail' invoice.id %}">{{ invoice }}</a> : {{ invoice.date }}</p>
                     {% endfor %}
 
                 </div>
