@@ -11,18 +11,17 @@
             <div class="row mx-5 justify-content-between text-center">
                 <div class="col-12">
 
-                    <h1 class="display-1"><a href="{% url 'invoices:invoice-create' %}">Create New Invoice</a> </h1>
-                    <hr>
-                    <h3 class="display-3">Invoices</h3>
-                    <hr>
+                    <h3 class="display-5 py-2">Invoices</h3>
 
                     {% if invoice_list|length == 0 %}
                         <h4>No invoices yet!</h4>
                     {% endif %}
 
                     {% for invoice in invoice_list %}
-                        <p><a href="{% url 'invoices:invoice-detail' invoice.id %}">{{ invoice }}</a> : {{ invoice.date }}</p>
+                        <p class="lead"><a href="{% url 'invoices:invoice-detail' invoice.id %}">{{ invoice }}</a> - {{ invoice.date }}
+                            <button type="button" onclick="document.location='{% url 'invoices:invoice-delete' invoice.id %}'" class="btn btn-outline-danger btn-sm">Delete</button></p>
                     {% endfor %}
+                    <h3 class="py-3"><a href="{% url 'inventory:productcreate' %}">Create new Invoice</a></h3>
 
                 </div>
             </div>

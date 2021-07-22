@@ -1,65 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <title>{%  block title %}Sales Dashboard{% endblock %}</title>
     {% block head %}
 
     {% endblock head %}
     {% block imports %}
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-    <!-- Latest compiled JavaScript -->
-{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>#}
+        <!-- Latest compiled and minified CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     {% endblock imports %}
 
 </head>
 
 <body>
 {% block navbar %}
-    <nav class="navbar navbar-inverse">
+{#    <nav class="navbar navbar-inverse">#}
+{#        <div class="container-fluid">#}
+{#            <div class="navbar-header">#}
+{#                <a class="navbar-brand" href="{% url "dashboard:index" %}">Dashboard</a>#}
+{#            </div>#}
+{##}
+{#            <ul class="nav navbar-nav">#}
+{#                <li class="active"><a href="{% url "dashboard:index" %}">Home</a></li>#}
+{##}
+{##}
+{#                <li class="nav-item dropdown">#}
+{#                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">#}
+{#                        Products#}
+{#                    </a>#}
+{#                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">#}
+{#                        <li><a class="dropdown-item" href="{% url 'inventory:productlist' %}">View All Products</a></li>#}
+{#                        <li><a class="dropdown-item" href="{% url 'inventory:productcreate' %}">Add New Product</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+{##}
+{##}
+{#                <li class="nav-item dropdown">#}
+{#                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">#}
+{#                        Invoices#}
+{#                    </a>#}
+{#                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">#}
+{#                        <li><a class="dropdown-item" href="{% url 'invoices:invoice-home' %}">View All Invoices</a></li>#}
+{#                        <li><a class="dropdown-item" href="{% url 'invoices:invoice-create' %}">Create New Invoice</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
+{#    </nav>#}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="{% url "dashboard:index" %}">Dashboard</a>
+            <a class="navbar-brand" href="{% url "dashboard:index" %}">QuickTrends</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url "dashboard:index" %}">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{% url 'inventory:productlist' %}">View Products</a></li>
+                            <li><a class="dropdown-item" href="{% url 'inventory:productcreate' %}">Add a Product</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Invoice
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{% url 'invoices:invoice-home' %}">View Invoices</a></li>
+                            <li><a class="dropdown-item" href="{% url 'invoices:invoice-create' %}">Create Invoice</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
             </div>
-
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="{% url "dashboard:index" %}">Home</a></li>
-
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Products
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{% url 'inventory:productlist' %}">View All Products</a></li>
-                        <li><a class="dropdown-item" href="{% url 'inventory:productcreate' %}">Add New Product</a></li>
-                    </ul>
-                </li>
-
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Invoices
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{% url 'invoices:invoice-home' %}">View All Invoices</a></li>
-                        <li><a class="dropdown-item" href="{% url 'invoices:invoice-create' %}">Create New Invoice</a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
     </nav>
-{% endblock %}
+{% endblock navbar%}
 {% block body %}
 
 
 {% endblock body %}
 
 {% block js %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 {% endblock js %}
 </body>
 </html>

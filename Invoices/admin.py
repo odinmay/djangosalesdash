@@ -2,12 +2,11 @@ from django.contrib import admin
 from .models import Invoice, Item
 
 # Register your models here.
-class InvoiceAdmin(admin.ModelAdmin):
-    fields = ['date', 'sales_channel', 'items']
 
 
 class ItemAdmin(admin.ModelAdmin):
-    fields = ['product', 'quantity']
+    fields = ['invoice', 'product', 'quantity', 'sales_channel']
 
-admin.site.register(Invoice, InvoiceAdmin)
+
+admin.site.register(Invoice)
 admin.site.register(Item, ItemAdmin)
