@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'Dashboard.apps.DashboardConfig',
     'Invoices.apps.InvoicesConfig',
     'crispy_forms',
+    'django.contrib.humanize',
+    'Data.apps.DataConfig',
 ]
 
 MIDDLEWARE = [

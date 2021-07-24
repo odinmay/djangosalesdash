@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block body %}
+<h1>Heres your targets sir.</h1>
+<p>target</p>
+<p>target</p>
+    <form action="{% url 'targetdata:target_data_home' %}" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit">
+    </form>
+{% endblock body %}
+
+</body>
+</html>

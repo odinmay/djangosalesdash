@@ -14,40 +14,8 @@
 </head>
 
 <body>
+
 {% block navbar %}
-{#    <nav class="navbar navbar-inverse">#}
-{#        <div class="container-fluid">#}
-{#            <div class="navbar-header">#}
-{#                <a class="navbar-brand" href="{% url "dashboard:index" %}">Dashboard</a>#}
-{#            </div>#}
-{##}
-{#            <ul class="nav navbar-nav">#}
-{#                <li class="active"><a href="{% url "dashboard:index" %}">Home</a></li>#}
-{##}
-{##}
-{#                <li class="nav-item dropdown">#}
-{#                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">#}
-{#                        Products#}
-{#                    </a>#}
-{#                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-{#                        <li><a class="dropdown-item" href="{% url 'inventory:productlist' %}">View All Products</a></li>#}
-{#                        <li><a class="dropdown-item" href="{% url 'inventory:productcreate' %}">Add New Product</a></li>#}
-{#                    </ul>#}
-{#                </li>#}
-{##}
-{##}
-{#                <li class="nav-item dropdown">#}
-{#                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">#}
-{#                        Invoices#}
-{#                    </a>#}
-{#                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-{#                        <li><a class="dropdown-item" href="{% url 'invoices:invoice-home' %}">View All Invoices</a></li>#}
-{#                        <li><a class="dropdown-item" href="{% url 'invoices:invoice-create' %}">Create New Invoice</a></li>#}
-{#                    </ul>#}
-{#                </li>#}
-{#            </ul>#}
-{#        </div>#}
-{#    </nav>#}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url "dashboard:index" %}">QuickTrends</a>
@@ -55,9 +23,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav my-1 ms-3">
 
-                    <li class="nav-item">
+                    <li class="nav-item me-auto">
                         <a class="nav-link active" aria-current="page" href="{% url "dashboard:index" %}">Home</a>
                     </li>
 
@@ -82,10 +50,14 @@
                     </li>
 
                 </ul>
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item"><a class="nav-link active ml-auto" href="{% url 'targetdata:target_data_home' %}">Targets</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 {% endblock navbar%}
+
 {% block body %}
 
 

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,11 @@
 
 
 <div class="container">
+    <div class="row text-center">
+        <div class="col">
+            <a href="{% url 'invoices:invoice-home' %}">Go Back</a>
+        </div>
+    </div>
     <div class="row text-center my-2">
         <div class="col">
             <h1 class="display-3">{{ invoice }}</h1>
@@ -25,7 +31,9 @@
                     <th scope="col">#</th>
                     <th scope="col">Product</th>
                     <th scope="col">Cost</th>
+                    <th scope="col">Sell Price</th>
                     <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -33,10 +41,23 @@
                 <tr>
                     <th scope="row">{{ forloop.counter }}</th>
                     <td>{{ thing }}</td>
-                    <td>{{ thing.product.cost }}</td>
-                    <td>{{thing.quantity}}</td>
+                    <td>{{ thing.product.cost|intcomma }}</td>
+                    <td>{{ thing.product.sale_price|intcomma }}</td>
+                    <td>{{ thing.quantity }}</td>
+                    <td>{{ thing.total|intcomma }}</td>
                 </tr>
                 {% endfor %}
+                <tf>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Invoice Total</td>
+                    <td>{{ invoice.total|intcomma }}</td>
+                </tf>
+
+
+
 
                 </tbody>
             </table>
