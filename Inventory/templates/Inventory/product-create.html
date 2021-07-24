@@ -25,7 +25,7 @@
         <div class="col-12 my-5">
             <form action="{% url 'inventory:productcreate' %}" method="post">
                 {% csrf_token %}
-                <h3>Add a new Product</h3>
+                <h1 class="display-4">Add a new Product</h1>
                 {{ form|crispy }}
                 <br>
                 <input type="submit">

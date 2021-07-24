@@ -11,15 +11,41 @@
 <body>
 
 {% block body %}
-<h1>Heres your targets sir.</h1>
-<p>target</p>
-<p>target</p>
-    <form action="{% url 'targetdata:target_data_home' %}" method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit">
-    </form>
+
+
+    <div class="container">
+        <div class="row text-center my-3">
+            <div class="col">
+                <h1 class="display-4">Set your targets!</h1>
+                <p class="lead">Attainable targets and discipline will help you meet your goals</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center text-center m-2">
+            <div class="col-md-12 align-items-center">
+                <form action="{% url 'targetdata:target_data_home' %}" method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <br>
+                    <input type="submit" value="Set Goals">
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center text-center my-4">
+            <div class="col-md-12 align-items-center">
+                <hr>
+                <h4 class="display-4">Current Goals</h4>
+                <p style="font-size: 24px" class="my-4">Monthly Sales Target : {{ data.monthly_sales }}</p>
+                <p style="font-size: 24px">Monthly Unit Sales : {{ data.monthly_unit_sales }}</p>
+            </div>
+        </div>
+
+
+
+    </div>
 {% endblock body %}
+
 
 </body>
 </html>
