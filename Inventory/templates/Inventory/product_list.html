@@ -16,7 +16,7 @@
             <div class="list-group py-2 text-center">
                 {% for product in product_list %}
 
-                    <a style="font-size: 28px" href="{% url 'inventory:productdetail' forloop.counter %}" class="list-group-item list-group-item-action py-2" aria-current="true">
+                    <a style="font-size: 28px" href="{% url 'inventory:productdetail' product.id %}" class="list-group-item list-group-item-action py-2" aria-current="true">
                         {{ product }}
                     </a>
 

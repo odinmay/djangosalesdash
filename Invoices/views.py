@@ -24,11 +24,12 @@ class InvoiceCreate(View):
     def post(self, request):
         form = ItemForm(request.POST)
         ctx = {'form': form}
+        print(request.POST.dict())
 
         if form.is_valid():
 
             if form.cleaned_data['invoice'] == None:
-                new_invoice = Invoice.objects.create()
+                new_invoice = Invoice.objects.create(date=request.POST['date'])
                 new_invoice.save()
 
                 item = Item.objects.create(
@@ -47,7 +48,7 @@ class InvoiceCreate(View):
                     quantity=form.cleaned_data['quantity'],
                     sales_channel=form.cleaned_data['sales_channel'],
                 )
-
+                form.cleaned_data['invoice'].date = request.POST['date']
                 item.save()
 
             return HttpResponseRedirect('/invoices')

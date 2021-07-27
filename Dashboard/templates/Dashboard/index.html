@@ -19,12 +19,11 @@
     <div class="container">
         <div class="row text-center my-2">
             <div class="col-12">
-                <h1>Graph</h1>
+                <h1>Your business trends at a glance</h1>
                 <hr>
-                <p class="lead my-4">Dropdowns to change graphy type, potentially month select for dates</p>
-                <div class="div text-center my-2">
-                <img src="https://novopsych.com.au/wp-content/uploads/elementor/thumbs/Dass-21-graph-oqejmpkdaiexk1c1z7wpcxwt5nl24l93m4aqtq37ps.png">
-                </div>
+
+                {% include "Dashboard/graph.html" %}
+
                 <a href="{% url 'inventory:productlist' %}">View Your Products</a>
             </div>
         </div>

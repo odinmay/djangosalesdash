@@ -3,8 +3,8 @@ from Inventory.models import Product
 
 
 class Invoice(models.Model):
-    date = models.DateTimeField(auto_now_add=True)
-    products = models.ManyToManyField(Product, related_name='proditem', through='Item')
+    date = models.DateTimeField(null=True)
+    products = models.ManyToManyField(Product, related_name='proditem', through='Item', null=True)
 
     def __str__(self):
         return 'Invoice #' + str(self.pk)
