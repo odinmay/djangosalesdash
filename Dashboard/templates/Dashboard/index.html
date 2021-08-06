@@ -16,19 +16,32 @@
 
 <body>
 {% block body %}
+    {% block graphbutton %}
     <div class="container">
-        <div class="row text-center my-2">
+        <div class="row text-center my-3">
             <div class="col-12">
                 <h1>Your business trends at a glance</h1>
-                <hr>
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle my-3" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        Change Graph
+                    </a>
 
-                {% include "Dashboard/graph.html" %}
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="{% url 'dashboard:index' %}">Sales Line Graph</a></li>
+                        <li><a class="dropdown-item" href="{% url 'dashboard:pie' %}">Profit Pie Chart</a></li>
+                        <li><a class="dropdown-item" href="#">Another Graph of some sort</a></li>
+                    </ul>
+                </div>
+                <hr>
+                {% block graph %}
+                {% include "Dashboard/GraphSnippets/graph.html" %}
+                {% endblock graph %}
 
                 <a href="{% url 'inventory:productlist' %}">View Your Products</a>
             </div>
         </div>
     </div>
-
+    {% endblock graphbutton %}
 {% endblock body %}
 </body>
 </html>

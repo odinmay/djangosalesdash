@@ -24,7 +24,7 @@ class DataHome(View):
         except Data.DoesNotExist:
             data = Data.objects.create()
 
-        form = TargetDataForm(request.POST,instance=data)
+        form = TargetDataForm(request.POST, instance=data)
 
         if form.is_valid():
             form.save()
