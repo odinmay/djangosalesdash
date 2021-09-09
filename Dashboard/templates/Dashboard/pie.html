@@ -7,7 +7,14 @@
 </head>
 <body>
     {% block graph %}
-        {% include "Dashboard/GraphSnippets/piesales.html" %}
+        <div class="row text-center my-3">
+            <div class="col-6">
+                {% include "Dashboard/GraphSnippets/piesales0.html" %}
+            </div>
+            <div class="col-6">
+                {% include "Dashboard/GraphSnippets/piesales1.html" %}
+            </div>
+        </div>
     {% endblock %}
 </body>
 </html>

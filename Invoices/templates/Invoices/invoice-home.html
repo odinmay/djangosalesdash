@@ -18,7 +18,7 @@
                     {% endif %}
 
                     {% for invoice in invoice_list %}
-                        <p class="lead"><a href="{% url 'invoices:invoice-detail' invoice.id %}">{{ invoice }}</a> - {{ invoice.date }}
+                        <p class="lead"><a href="{% url 'invoices:invoice-detail' invoice.id %}">{{ invoice }}</a>{% if invoice.date %} - {{ invoice.date }}{% endif %}
                             <button type="button" onclick="document.location='{% url 'invoices:invoice-delete' invoice.id %}'" class="btn btn-outline-danger btn-sm mx-2">Delete</button></p>
                     {% endfor %}
                     <h3 class="py-3"><a href="{% url 'invoices:invoice-create' %}">Create new Invoice</a></h3>

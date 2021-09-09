@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $( function() {
-            $( "#id_date" ).datepicker({ dateFormat: 'yy-mm-dd' });
+            $( "#id_date" ).datepicker({ dateFormat: 'mm-dd-yy' });
         } );
     </script>
     {% endblock head %}
@@ -35,7 +35,7 @@
                     <br>
                     <input class="my-3" id="id_date" name="date"
                            value="Date Picker"
-                           min="2018-01-01" max="2018-12-31">
+                           min="01-01-2018" max="12-31-2030">
                     <br>
                     {{ form|crispy }}
                     <br>
