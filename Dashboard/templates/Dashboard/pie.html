@@ -1,20 +1,14 @@
 {% extends "Dashboard/index.html" %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pie Sales</title>
-</head>
-<body>
-    {% block graph %}
-        <div class="row text-center my-3">
-            <div class="col-6">
-                {% include "Dashboard/GraphSnippets/piesales0.html" %}
-            </div>
-            <div class="col-6">
-                {% include "Dashboard/GraphSnippets/piesales1.html" %}
-            </div>
+
+{% block title %}Sales Dashboard{% endblock title %}
+
+{% block graph %}
+    <div class="row text-center my-3">
+        <div class="col-6">
+            {% include "Dashboard/GraphSnippets/piesales0.html" %}
         </div>
-    {% endblock %}
-</body>
-</html>
+        <div class="col-6">
+            {% include "Dashboard/GraphSnippets/piesales1.html" %}
+        </div>
+    </div>
+{% endblock %}

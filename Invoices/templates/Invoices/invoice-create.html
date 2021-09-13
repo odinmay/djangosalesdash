@@ -1,25 +1,17 @@
 {%  extends "base.html" %}
 {% load crispy_forms_filters %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    {% block head %}
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+{%  block title %}Create Invoice{%  endblock title %}
+
+{% block head %}
     <script>
         $( function() {
             $( "#id_date" ).datepicker({ dateFormat: 'mm-dd-yy' });
         } );
     </script>
-    {% endblock head %}
-</head>
-<body>
+{% endblock head %}
 
 {% block body %}
-
     <div class="container">
 
         <div class="row text-center my-2">
@@ -31,21 +23,22 @@
         <div class="row align-self-center justify-content-center text-center">
             <div class="col-12 my-3">
                 <form method="post">{% csrf_token %}
-                    <label for="id_date">Sale Date:</label>
                     <br>
                     <input class="my-3" id="id_date" name="date"
-                           value="Date Picker"
+                           value="Invoice Date"
                            min="01-01-2018" max="12-31-2030">
                     <br>
-                    {{ form|crispy }}
-                    <br>
+
+                    {%  for form in formset %}
+                        {{ form.product }}
+                        {{ form.quantity }}
+                        <br>
+                    {% endfor %}
+
+                    <hr>
                     <input label="Quantity" type="submit" value="Save">
                 </form>
             </div>
         </div>
     </div>
-
 {% endblock body %}
-
-</body>
-</html>

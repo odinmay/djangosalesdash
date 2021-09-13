@@ -1,33 +1,25 @@
 {% extends "base.html" %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Invoices{% endblock %}</title>
-</head>
-<body>
-    {% block body %}
-        <div class="container">
-            <div class="row mx-5 justify-content-between text-center">
-                <div class="col-12">
 
-                    <h3 class="display-5 py-2">Invoices</h3>
+{% block title %}Invoices{% endblock %}
 
-                    {% if invoice_list|length == 0 %}
-                        <h4>No invoices yet!</h4>
-                    {% endif %}
+{% block body %}
+    <div class="container">
+        <div class="row mx-5 justify-content-between text-center">
+            <div class="col-12">
 
-                    {% for invoice in invoice_list %}
-                        <p class="lead"><a href="{% url 'invoices:invoice-detail' invoice.id %}">{{ invoice }}</a>{% if invoice.date %} - {{ invoice.date }}{% endif %}
-                            <button type="button" onclick="document.location='{% url 'invoices:invoice-delete' invoice.id %}'" class="btn btn-outline-danger btn-sm mx-2">Delete</button></p>
-                    {% endfor %}
-                    <h3 class="py-3"><a href="{% url 'invoices:invoice-create' %}">Create new Invoice</a></h3>
+                <h3 class="display-5 py-2">Invoices</h3>
 
-                </div>
+                {% if invoice_list|length == 0 %}
+                    <h4>No invoices yet!</h4>
+                {% endif %}
+
+                {% for invoice in invoice_list %}
+                    <p class="lead"><a href="{% url 'invoices:invoice-detail' invoice.id %}">{{ invoice }}</a>{% if invoice.date %} - {{ invoice.date }}{% endif %}
+                        <button type="button" onclick="document.location='{% url 'invoices:invoice-delete' invoice.id %}'" class="btn btn-outline-danger btn-sm mx-2">Delete</button></p>
+                {% endfor %}
+                <h3 class="py-3"><a href="{% url 'invoices:invoice-create' %}">Create new Invoice</a></h3>
+
             </div>
         </div>
-
-
-    {% endblock body %}
-</body>
-</html>
+    </div>
+{% endblock body %}

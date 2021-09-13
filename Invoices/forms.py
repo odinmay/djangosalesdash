@@ -1,12 +1,13 @@
-from django.forms import *
+from django import forms
+from django.forms import ModelForm
 from Invoices.models import Invoice, Item
+
 from Inventory.models import Product
 
 
-# class InvoiceForm(ModelForm):
-#     class Meta:
-#         model = Invoice
-#         fields = '__all__'
+class InvoiceForm(forms.Form):
+    date = forms.DateField()
+
 
 
 

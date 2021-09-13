@@ -2,17 +2,9 @@
 {% load humanize %}
 {% load crispy_forms_tags %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}Targets/Goals{% endblock title %}
 
 {% block body %}
-
-
     <div class="container">
         <div class="row text-center my-3">
             <div class="col">
@@ -40,12 +32,5 @@
                 <p style="font-size: 24px">Monthly Unit Sales : {{ data.monthly_unit_sales }}</p>
             </div>
         </div>
-
-
-
     </div>
 {% endblock body %}
-
-
-</body>
-</html>

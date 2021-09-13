@@ -1,17 +1,9 @@
 {% extends "base.html" %}
 {% load humanize %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+
+{% block title %}Invoice Detail{% endblock title %}
 
 {% block body %}
-
-
-
 <div class="container">
     <div class="row text-center">
         <div class="col">
@@ -55,19 +47,9 @@
                     <td>Invoice Total</td>
                     <td>{{ invoice.total|intcomma }}</td>
                 </tf>
-
-
-
-
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
-
-
 {% endblock body %}
-
-</body>
-</html>
